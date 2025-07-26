@@ -61,4 +61,5 @@ proj/
 
 ## Notes
 - Make sure the backend is running before accessing the frontend.
-- Don't forget to copy .env.example to a .env file
+- Don't forget to copy .env.example to a .env file.
+- i used redux toolkit despite the project being simple because its cleaner and better if i continued adding features to the project in future.
