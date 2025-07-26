@@ -32,6 +32,8 @@ export class Section extends Document {
 
   @Prop()
   createdAt: Date;
+  @Prop()
+  prompt: string;
 }
 
 export const SectionSchema = SchemaFactory.createForClass(Section);

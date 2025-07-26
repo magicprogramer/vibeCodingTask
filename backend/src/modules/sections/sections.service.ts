@@ -7,10 +7,13 @@ import { Section } from './sections.schema';
 @Injectable()
 export class SectionsService {
   constructor(@InjectModel(Section.name) private sectionModel: Model<Section>) {}
-
+async findAll(): Promise<Section[]> {
+  return this.sectionModel.find().sort({ createdAt: -1 });
+}
   async create(prompt: string): Promise<{ new: Section; all: Section[] }> {
-    const imageUrl = `https://picsum.photos/640/480?random=${Math.floor(Math.random() * 1000)}`;
+    const imageUrl = `https://picsum.photos/id/${Math.min(Math.floor(Math.random() * 1000), 1000)}/640/480`;
     const newSection = new this.sectionModel({
+      prompt,
       hero: {
         imageUrl: imageUrl,
         text: faker.company.catchPhrase()
